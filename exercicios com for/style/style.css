@@ -1,0 +1,152 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  
+}
+
+:root{
+--primary-color : #2b9720
+}
+
+
+body {
+  background-color: var(--primary-color);
+  width: 100%;
+height: 100%;
+  
+}header{
+  width: 100%;
+  height: 4rem;
+  background: rgb(165, 200, 137);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+
+
+#nav{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 70%;
+
+}
+
+.menu{
+  width: 100%;
+  height: 100%;
+  border: 1px solid rgb(223, 108, 108);
+display: flex;
+align-items: center;
+justify-content: space-between;
+padding: 1rem;
+text-decoration: none;
+list-style: none;
+font-size: 1.4rem;
+gap: .9rem;
+font-family: 'Times New Roman', Times, serif;
+background: rgb(165, 200, 137);
+
+
+}
+.menu li {
+  cursor: pointer;
+  transition: 0.3s all;
+}
+.menu li:hover{
+  color: var(--primary-color);
+}
+
+#btn-mobile{
+  display: none;
+  border: none;
+  background: transparent;
+  padding: .5rem 1rem;
+  gap: .5rem;
+}
+
+.container {
+    width: 100%;
+    height: 500px;
+    max-width: 500px;
+    border-radius: 20px;
+    border: 3px solid #343A1A;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  background-color: #9bfcfd;
+  animation: worldOfPlace 2s  1s forwards;
+  
+}
+#hamburguer{
+  width: 20px;
+  border-top:2px solid ;
+}
+#hamburguer::after, #hamburguer::before{
+  content: '';
+  display: block;
+  width: 20px;
+  border-top:2px solid ;
+  display: block;
+  margin-top: 5px;
+  background: currentColor;
+  transition: .3s;
+  position: relative;
+}
+
+
+@keyframes worldOfPlace{
+    0%{
+        position: relative;
+        top: 0;
+    }
+    
+    100%{
+        position: relative;
+        top:200px;
+    }
+}
+
+@media (min-width:380px) and (max-width:800px){
+  .menu{
+    width: 100%;
+    height: 100%;
+    display: block;
+    position: absolute;
+    top: 35px;
+    right: 0;
+    height: 0px;
+    visibility: hidden;
+    overflow-y: hidden;
+    z-index: 1000;
+    transition: .6s;
+    border: 1px solid red;
+ 
+  }
+
+  .menu li {
+    display: block;
+    padding: .5rem; 
+        text-align: center;
+  }
+  #nav.active .menu{
+    height:calc(100vh - 35px) ;
+    visibility: visible;
+    overflow-y: auto;
+  }
+  #hamburguer.active{
+    border-top: transparent;
+  }
+  #hamburguer.active::before{
+      transform: rotate(135deg);
+    }
+     #hamburguer.active::after{
+      transform: rotate(-135deg);
+      top: -7px;
+    }
+  
+}
